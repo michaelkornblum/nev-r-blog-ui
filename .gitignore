@@ -18,6 +18,12 @@
 .env.test.local
 .env.production.local
 
+/src/data/admins.js
+/src/data/contributors.js
+/src/data/departments.js
+/src/data/editors.js
+/src/data/users.js
+
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
