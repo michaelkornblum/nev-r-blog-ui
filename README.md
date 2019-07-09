@@ -1,10 +1,8 @@
 # Welcome to Nev-r-Blog-UI
 
-## Maintainer's Note
+**Maintainer's Note:** At the time of this writing, Nev-R-Blog-UI is merely a prototype of how the application is supposed to work from a UI / UX perspective. It is also a work in progress. With this being said, documentation is far from complete.
 
-At the time of this writing, Nev-R-Blog-UI is merely a prototype of how the application is supposed to work from a UI / UX perspective. It is also a work in progress. With this being said, documentation is far from complete.
-
-**Nev-r-Blog-ui** is the client-side dashboard for the soon to be famous **Nev-r-Blog** static content management system. Nev-r-Blog will consist of three seperate repositories.
+**Nev-r-Blog-ui** is the client-side dashboard for the soon to be famous **Nev-r-Blog** static content management system. Nev-r-Blog SCMS will consist of three seperate applications.
 
 ## Nev-R-Blog-UI
 
