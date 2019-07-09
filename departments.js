@@ -1,1 +1,0 @@
-export default [{"id":"824b28ae-264c-433f-9b88-7b02cb601734","name":"marketing"},{"id":"f02ba0de-d301-4aed-85b5-7752f157a675","name":"e-commerce"}]

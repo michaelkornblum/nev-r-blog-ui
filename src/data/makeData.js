@@ -17,7 +17,7 @@ let users = [],
 // Save Data to Files
 const saveDataFile = (fileName, data) =>
 	fs.writeFileSync(
-		fileName + ".js",
+		"./src/data/" + fileName + ".js",
 		"export default " + JSON.stringify(data)
 	);
 
