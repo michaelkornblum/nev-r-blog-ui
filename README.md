@@ -50,4 +50,4 @@ Hells yeah! I have a wife and cat to feed. Once I figure out how to get the new 
 
 ### Will there be better documentation?
 
-As snarky as I am, I do take documentation very seriously. There have been numerous times when bad documentation has sent me running from an open source project, that could have otherwise been very useful to me. As Nev-R-Blog reaches completion, I will make a point of giving you some of the best documentation that you have ever seen in an open source project. That is a solid promise.
+I take documentation very seriously. There have been numerous times when bad documentation has sent me running from an open source project, that could have otherwise been very useful to me. As Nev-R-Blog reaches completion, I will make a point of giving you some of the best documentation that you have ever seen in an open source project. That is a solid promise.
