@@ -1,68 +1,55 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# Welcome to Nev-r-Blog-UI
 
-## Available Scripts
+## Maintainer's Note
 
-In the project directory, you can run:
+At the time of this writing, Nev-R-Blog-UI is merely a prototype of how the application is supposed to work from a UI / UX perspective. It is also a work in progress. With this being said, documentation is far from complete.
 
-### `npm start`
+**Nev-r-Blog-ui** is the client-side dashboard for the soon to be famous **Nev-r-Blog** static content management system. Nev-r-Blog will consist of three seperate repositories.
 
-Runs the app in the development mode.<br>
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+## Nev-R-Blog-UI
 
-The page will reload if you make edits.<br>
-You will also see any lint errors in the console.
+Nev-R-Blog-UI will serve as a friendly user interface where your clients will be able to create, edit and delete their websites content. Features include:
 
-### `npm test`
+-   a multi-leveled access control system for Administrators, Editors and Contributors.
 
-Launches the test runner in the interactive watch mode.<br>
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+-   the ability to deploy static website content with the click of a button.
 
-### `npm run build`
+Nev-R-Blog-UI will be created with ReactJS.
 
-Builds the app for production to the `build` folder.<br>
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## Nev-R-Blog-Server
 
-The build is minified and the filenames include the hashes.<br>
-Your app is ready to be deployed!
+Nev-R-Blog-Server will be the official API server for Nev-R-Blog. It will be built with Node, Express and MongoDB. Unlike regular content management systems, Nev-R-Blog-Server is meant to be deployed in a location that's seperate from your publically hosted website, making it more secure than other Content Management solutions.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## Nev-R-Blog-Builder
 
-### `npm run eject`
+Nev-R-Blog-Static is the build system that merges data from the Nev-R-Blog Server with component templates to create static HTML files. Features include:
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+-   a dedicated static site generator
+-   automatic optimization of site assets (CSS, JavaScript, Images, etc).
+-   deployment to your host / CDN of choice.
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+Nev-R-Blog-Builder is built with Gatsby.
 
-Instead, it will copy all the configuration files and the transitive dependencies (Webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+## FAQs
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+### Why Nev-R-Blog?
 
-## Learn More
+Originally, the first three letters of Nev-R-Blog stood for Node, Express, and VueJS. However, I am hoping that a project of such magnitude might secure me a career as a full-stack developer, and most of the shops out here prefer to use React as their JavaScript framework of choice. With this benig said, I decided to keep the name for sentimental reasons.
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+### Why are you breaking this up into three seperate projects?
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+Not everyone may be happy with the technical decisions I made with this project. You may want to port Nev-R-Blog-UI from React to Vue. Or you may want to use a different API server like Contentful, Sanity, or Cockpit. Finally, you may want to use a combination of Gulp and Eleventy in place of Nev-R-Blog-Static.
 
-### Code Splitting
+This is open source software, and I myself like tinkering. By splitting this project into three different repos, it will make it all the easier for you to modify Nev-R-Blog to fit your specific needs.
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
+### When will it be completed?
 
-### Analyzing the Bundle Size
+When I say it is. Bear in mind that I also work a full time job outside of the tech industry, and every now and then, I like to get out from behind my desk to enjoy a healthy work / life balance.
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
+### Do you accept money?
 
-### Making a Progressive Web App
+Hells yeah! I have a wife and cat to feed. Once I figure out how to get the new donation feature working on github, it will be implemented.
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
+### Will there be better documentation?
 
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `npm run build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+As snarky as I am, I do take documentation very seriously. There have been numerous times when bad documentation has sent me running from an open source project, that could have otherwise been very useful to me. As Nev-R-Blog reaches completion, I will make a point of giving you some of the best documentation that you have ever seen in an open source project. That is a solid promise.
