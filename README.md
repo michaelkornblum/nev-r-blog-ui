@@ -46,7 +46,7 @@ When I say it is. Bear in mind that I also work a full time job outside of the t
 
 ### Do you accept money?
 
-Hells yeah! I have a wife and cat to feed. Once I figure out how to get the new donation feature working on github, it will be implemented.
+Yes. Once I figure out how to get the new donation feature working on github, it will be implemented.
 
 ### Will there be better documentation?
 
