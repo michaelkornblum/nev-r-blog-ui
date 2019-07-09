@@ -4,7 +4,7 @@
 
 **Nev-r-Blog-ui** is the client-side dashboard for the soon to be famous **Nev-r-Blog** static content management system. Nev-r-Blog SCMS will consist of three seperate applications.
 
-## Nev-R-Blog-UI
+## Nev-r-Blog-UI
 
 Nev-R-Blog-UI will serve as a friendly user interface where your clients will be able to create, edit and delete their websites content. Features include:
 
@@ -14,11 +14,11 @@ Nev-R-Blog-UI will serve as a friendly user interface where your clients will be
 
 Nev-R-Blog-UI will be created with ReactJS.
 
-## Nev-R-Blog-Server
+## Nev-r-Blog-Server
 
 Nev-R-Blog-Server will be the official API server for Nev-R-Blog. It will be built with Node, Express and MongoDB. Unlike regular content management systems, Nev-R-Blog-Server is meant to be deployed in a location that's seperate from your publically hosted website, making it more secure than other Content Management solutions.
 
-## Nev-R-Blog-Builder
+## Nev-r-Blog-Builder
 
 Nev-R-Blog-Static is the build system that merges data from the Nev-R-Blog Server with component templates to create static HTML files. Features include:
 
@@ -30,7 +30,7 @@ Nev-R-Blog-Builder is built with Gatsby.
 
 ## FAQs
 
-### Why Nev-R-Blog?
+### Why Nev-r-Blog?
 
 Originally, the first three letters of Nev-R-Blog stood for Node, Express, and VueJS. However, I am hoping that a project of such magnitude might secure me a career as a full-stack developer, and most of the shops out here prefer to use React as their JavaScript framework of choice. With this benig said, I decided to keep the name for sentimental reasons.
 
