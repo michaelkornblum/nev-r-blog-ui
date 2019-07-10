@@ -1,12 +1,10 @@
-// IMPORTS -------------------------------------------------------------------->
-
 // React Modules
 import React, { useState } from "react";
 
-// React Router Components
+// React-Router Components
 import { Redirect } from "react-router-dom";
 
-// Material UI Core Components
+// material-ui Components
 import {
 	makeStyles,
 	Grid,
@@ -20,7 +18,7 @@ import {
 	SnackbarContent
 } from "@material-ui/core";
 
-// COMPONENT STYLING ---------------------------------------------------------->
+// Component Styling
 const useStyles = makeStyles(theme => ({
 	root: {
 		flexGrow: 1
@@ -35,7 +33,7 @@ const useStyles = makeStyles(theme => ({
 	},
 	title: {
 		backgroundColor: theme.palette.primary.dark,
-		color: "#fff"
+		color: "#ffffff"
 	},
 	textField: {
 		width: "100%"
@@ -45,32 +43,31 @@ const useStyles = makeStyles(theme => ({
 	}
 }));
 
-// FUNCTIONAL COMPONENT ------------------------------------------------------->
-export default ({ logInSubmit, isLoggedIn, error }) => {
-	// Use Component Styling
+// Functional Component
+export default ({ logInSubmit, loggedIn, error }) => {
+	// Bring in Component Styling
 	const classes = useStyles();
 
-	// Application State ------------------------------------------------------>
+	// Set Component State
 	const [formData, setFormData] = useState({});
 
-	// Event Handlers --------------------------------------------------------->
-	// Set Form Data from Text Fields
-	const handleChange = name => event =>
-		setFormData({ ...formData, [name]: event.target.value });
-
-	// Package Form Data
+	// Package Form Data for Authentication
 	const handleFormSubmit = () => {
 		logInSubmit(formData);
 		setFormData({});
 	};
 
-	// Rendered JSX ----------------------------------------------------------->
-	return isLoggedIn ? (
+	// Set Form Data From Text Fields
+	const handleChange = name => event =>
+		setFormData({ ...formData, [name]: event.target.value });
+
+	// Return Rendered JSX
+	return loggedIn ? (
 		<Redirect to="/dashboard" />
 	) : (
 		<Grid
-			container
 			className={classes.grid}
+			container
 			spacing={0}
 			direction="column"
 			alignItems="center"
@@ -93,28 +90,30 @@ export default ({ logInSubmit, isLoggedIn, error }) => {
 						) : null}
 
 						<TextField
-							required
 							className={classes.textField}
 							onChange={handleChange("email")}
-							value={formData.email ? formData.email : ""}
 							label="email"
 							type="email"
+							value={formData.email ? formData.email : ""}
+							required
 						/>
 						<br />
 						<TextField
-							required
 							className={classes.textField}
 							onChange={handleChange("password")}
-							value={formData.password ? formData.password : ""}
 							label="password"
 							type="password"
+							value={formData.password ? formData.password : ""}
+							required
 						/>
 						<br />
 					</CardContent>
 					<CardActions>
 						<Button
-							onClick={handleFormSubmit}
+							variant="contained"
+							color="primary"
 							disabled={!formData.email || !formData.password}
+							onClick={handleFormSubmit}
 						>
 							Sign In
 						</Button>

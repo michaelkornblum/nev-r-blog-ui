@@ -1,9 +1,7 @@
-// IMPORTS -------------------------------------------------------------------->
-
-// React Modules
+// React Imports
 import React, { useState } from "react";
 
-// Material UI Core Components
+// material-ui-core Imports
 import {
 	makeStyles,
 	AppBar,
@@ -18,10 +16,10 @@ import {
 	ListItemText
 } from "@material-ui/core";
 
-// Material UI Icon Imports
+// material-ui-icons Imports
 import MenuIcon from "@material-ui/icons/Menu";
 
-// COMPONENT STYLING ---------------------------------------------------------->
+// Component Styling
 const useStyles = makeStyles(theme => ({
 	root: {
 		flexGrow: 1
@@ -40,40 +38,36 @@ const useStyles = makeStyles(theme => ({
 	}
 }));
 
-// FUNCTIONAL COMPONENT ------------------------------------------------------->
+// Functional Component
 export default ({ logOut, isLoggedIn }) => {
-	// Use Component Styling
+	// Bring in Component Styling
 	const classes = useStyles();
 
-	// Application State ------------------------------------------------------>
+	// Set Component States
 	const [navDrawerOpen, setNavDrawerOpen] = useState(false);
+	const [navItems] = useState(["Collections", "Items"]);
 
-	// Miscellaneous Variables ------------------------------------------------>
-	const navItems = ["collections", "items"];
-
-	// Event Handlers --------------------------------------------------------->
-
-	// Toggle Nav Drawer
+	// Show / Hide Nav Drawer
 	const handleNavDrawerToggle = () => setNavDrawerOpen(!navDrawerOpen);
 
-	// Log Out User
 	const handleLogOut = () => logOut();
 
-	// Rendered JSX ----------------------------------------------------------->
+	// Return Rendered JSX
 	return (
 		<header className={classes.root}>
 			<AppBar
+				className={classes.appBar}
 				position="static"
 				color="primary"
-				className={classes.appBar}
 			>
 				<Toolbar>
 					{isLoggedIn ? (
 						<Hidden smUp>
 							<IconButton
 								edge="start"
-								color="inherit"
 								className={classes.menuButton}
+								color="inherit"
+								aria-label="Menu"
 								onClick={handleNavDrawerToggle}
 							>
 								<MenuIcon />
@@ -87,9 +81,9 @@ export default ({ logOut, isLoggedIn }) => {
 									<ListItem button onClick={handleLogOut}>
 										<ListItemText primary="Sign Out" />
 									</ListItem>
-									{navItems.map(item => (
-										<ListItem button key={item}>
-											<ListItemText primary={item} />
+									{navItems.map(navItem => (
+										<ListItem key={navItem} button>
+											<ListItemText primary={navItem} />
 										</ListItem>
 									))}
 								</List>
@@ -98,24 +92,23 @@ export default ({ logOut, isLoggedIn }) => {
 					) : null}
 
 					<Typography
-						className={classes.title}
 						variant="h6"
 						component="h1"
+						className={classes.title}
 					>
 						Nev-r-Blog
 					</Typography>
 
 					{isLoggedIn ? (
 						<Hidden xsDown>
-							{navItems.map(item => (
-								<Button key={item} color="inherit">
-									{item}
+							{navItems.map(navItem => (
+								<Button key={navItem} color="inherit">
+									{navItem}
 								</Button>
 							))}
-							<Button onClick={handleLogOut} color="inherit">
+							<Button color="inherit" onClick={handleLogOut}>
 								Sign Out
 							</Button>
-							))}
 						</Hidden>
 					) : null}
 				</Toolbar>

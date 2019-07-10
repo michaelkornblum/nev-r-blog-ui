@@ -1,34 +1,42 @@
-// IMPORTS -------------------------------------------------------------------->
-
 // React Modules
 import React, { useState } from "react";
 
-// React Router Modules
+// React-router Modules
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+
+// Material-ui Components
+import { makeStyles, Container } from "@material-ui/core";
 
 // Application Modules
 import Header from "./layouts/Header";
 import SignIn from "./containers/SignIn";
 import Dashboard from "./containers/Dashboard";
 
-// User Data
+// Data Structures
 import Users from "../data/users";
 
-// FUNCTIONAL COMPONENT ------------------------------------------------------->
+// Component Styling
+const useStyles = makeStyles(theme => ({
+	container: {
+		backgroundColor: "#eee"
+	}
+}));
 
+// Functional Component
 export default () => {
-	// Application State ------------------------------------------------------>
-	const [logIn, setLogIn] = useState(false);
+	// Bring in Component Styling
+	const classes = useStyles();
+
+	// Set Component States
+	const [logIn, setLogin] = useState(false);
 	const [users, setUsers] = useState(Users);
 	const [currUser, setCurrUser] = useState({});
 	const [error, setError] = useState({});
 
-	// Event Handlers --------------------------------------------------------->
-
 	// Log User Out
 	const handleLogOut = () => {
 		setCurrUser({});
-		setLogIn(false);
+		setLogin(false);
 	};
 
 	// Authenticate User
@@ -38,7 +46,7 @@ export default () => {
 		);
 		if (newUser) {
 			setCurrUser(newUser);
-			setLogIn(true);
+			setLogin(true);
 			setError({});
 		} else {
 			setCurrUser({});
@@ -48,21 +56,21 @@ export default () => {
 		}
 	};
 
-	// Rendered JSX ----------------------------------------------------------->
+	// Return Rendered JSX
 	return (
-		<div>
+		<div className={classes.container}>
 			<Router>
 				<Header logOut={handleLogOut} isLoggedIn={logIn} />
 				<Switch>
 					<Route
-						exact
 						path="/"
+						exact
 						render={routeProps => (
 							<SignIn
 								{...routeProps}
 								error={error}
 								logInSubmit={handleLogInSubmit}
-								isLoggedIn={logIn}
+								loggedIn={logIn}
 							/>
 						)}
 					/>
