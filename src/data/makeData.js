@@ -88,7 +88,7 @@ saveDataFile("editors", editors);
 contributors = users.map(user => ({
 	id: uuid(),
 	userId: user.id,
-	departmentId: getRandomId(departments)
+	deptId: getRandomId(departments)
 }));
 
 // Write Contributors Array to File
