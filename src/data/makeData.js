@@ -94,4 +94,5 @@ contributors = users.map(user => ({
 // Write Contributors Array to File
 saveDataFile("contributors", contributors);
 
+// Console Log Output
 console.log("Test data created.");
