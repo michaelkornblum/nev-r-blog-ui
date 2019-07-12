@@ -79,7 +79,7 @@ export default ({ user, users }) => {
 				deptId: id,
 				// Find Contributers for the group
 				contributors: Contributors.filter(
-					contributor => contributor.departmentId === id
+					contributor => contributor.deptId === id
 					// Create a sub-array of objects for the group contributors.
 				).map(contributor => ({
 					// ID of the Contributor
@@ -106,6 +106,7 @@ export default ({ user, users }) => {
 	}, [user.id]);
 
 	console.log(editorGroups);
+
 	// Is User Not Logged In?
 	return !user.name ? (
 		// Redirect to Login Screen
