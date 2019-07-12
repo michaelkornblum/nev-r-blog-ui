@@ -58,36 +58,42 @@ export default ({ user, users }) => {
 
 	// Set Application State
 	const [isAdmin, setIsAdmin] = useState(false);
-	const [editorGroups, setEditorGroups] = useState([]);
-	const [deptContributors, setDeptContributors] = useState([]);
+	const [contributors, setContributors] = useState(Contributors);
+	const [editors, setEditors] = useState(Editors);
+	const [departments, setDepartments] = useState(Departments);
 
-	// Set editorGroups initialState
-	useEffect(() => {
+	const getEditorGroups = () => {
 		// Return an array of ID numbers for each group the user edits.
-		let editorIds = Editors.filter(editor => editor.userId === user.id).map(
-			editor => editor.deptId
-		);
+		let editorIds = editors
+			.filter(editor => editor.userId === user.id)
+			.map(editor => editor.deptId);
 
 		// User is Editor
 		if (editorIds.length > 0) {
 			/*	Create an array of objects based on the number of groups the 	
 				user edits.	*/
-			let groups = editorIds.map(id => ({
+			return editorIds.map(id => ({
 				// Name of the group
-				name: Departments.find(department => department.id === id).name,
+				name: departments.find(department => department.id === id).name,
 				// ID of the group
 				deptId: id,
 				// Find Contributers for the group
-				contributors: Contributors.filter(
-					contributor => contributor.deptId === id
-					// Create a sub-array of objects for the group contributors.
-				).map(contributor => ({
-					// ID of the Contributor
-					id: contributor.userId,
-					// Name of the Contributor
-					name: Users.find(user => user.id === contributor.userId)
-						.name
-				})),
+				contributors: contributors
+					.filter(
+						contributor => contributor.deptId === id
+						// Create a sub-array of objects for the group contributors.
+					)
+					.map(contributor => ({
+						// ID of the Contributor
+						id: contributor.id,
+						// Name of the Contributor
+						name: users.find(user => user.id === contributor.userId)
+							.name,
+						// Email
+						email: users.find(
+							user => user.id === contributor.userId
+						).email
+					})),
 				// Find other Editors in the Group
 				editors: Editors.filter(
 					editor => editor.deptId === id && editor.userId !== user.id
@@ -96,14 +102,39 @@ export default ({ user, users }) => {
 					// ID of the Editor
 					id: editor.userId,
 					// Name of the Editor
-					name: Users.find(user => user.id === editor.userId).name
+					name: users.find(user => user.id === editor.userId).name,
+					// Email
+					email: users.find(user => user.id === editor.userId).email
 				}))
 			}));
-
-			// Set editorGroup State from array.
-			setEditorGroups(groups);
+		} else {
+			return null;
 		}
-	}, [user.id]);
+	};
+
+	let editorGroups = getEditorGroups();
+
+	let editorSection = null;
+
+	if (editorGroups) {
+		editorSection = (
+			<Fragment>
+				<Typography variant="h5" component="h3">
+					Your Departments:
+				</Typography>
+				{editorGroups.map(editorGroup => (
+					<Typography
+						key={editorGroup.deptId}
+						variant="h6"
+						component="h4"
+						gutterBottom
+					>
+						{editorGroup.name}
+					</Typography>
+				))}
+			</Fragment>
+		);
+	}
 
 	console.log(editorGroups);
 
@@ -114,14 +145,11 @@ export default ({ user, users }) => {
 	) : (
 		// Otherwise ...
 		<Container className={classes.container}>
-			<Fragment />
 			{/* Display User Name */}
 			<Typography variant="h4" component="h2" gutterBottom>
 				Hello, {user.name}.
 			</Typography>
-			<Typography variant="h5" component="h3" gutterBottom>
-				Your Departments:
-			</Typography>
+			{editorSection}
 		</Container>
 	);
 };
